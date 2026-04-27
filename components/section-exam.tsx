@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { SectionHeader } from "./section-header"
 import { CalendarClock, ClipboardList, FileBarChart, AlertCircle } from "lucide-react"
+import { articles } from "@/lib/articles"
 
 const quickEntries = [
   {
@@ -29,24 +30,10 @@ const quickEntries = [
   },
 ]
 
-const examNotices = [
-  {
-    title: "关于2025-2026学年第二学期期末考试安排的通知",
-    date: "2026-04-21",
-  },
-  {
-    title: "关于组织2026年上半年全国大学英语四、六级考试的通知",
-    date: "2026-04-16",
-  },
-  {
-    title: "关于2026届毕业生补考、缓考申请受理工作安排",
-    date: "2026-04-10",
-  },
-  {
-    title: "关于严肃考风考纪有关问题的通知（重申）",
-    date: "2026-04-02",
-  },
-]
+const examNotices = articles
+  .filter((a) => a.category === "考务通知")
+  .slice(0, 4)
+  .map((a) => ({ slug: a.slug, title: a.title, date: a.date }))
 
 export function SectionExam() {
   return (
@@ -78,10 +65,10 @@ export function SectionExam() {
 
       {/* 考务通知列表 */}
       <ul className="mt-3 divide-y divide-border border-t border-border">
-        {examNotices.map((n, i) => (
-          <li key={i}>
+        {examNotices.map((n) => (
+          <li key={n.slug}>
             <Link
-              href="#"
+              href={`/articles/${n.slug}`}
               className="group flex items-center gap-3 py-2.5 text-sm transition-colors hover:bg-secondary/60"
             >
               <span
