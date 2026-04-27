@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
 const items = [
-  { label: "首页", href: "/", internal: true, current: true },
+  { label: "首页", href: "/", internal: true },
   {
     label: "智慧化教学管理系统",
     href: "https://jwxt.lncc.edu.cn/",
@@ -25,13 +25,17 @@ const items = [
   },
 ]
 
-export function SiteNav() {
+interface SiteNavProps {
+  currentHref?: string
+}
+
+export function SiteNav({ currentHref = "/" }: SiteNavProps) {
   return (
     <nav aria-label="主导航" className="w-full border-b-2 border-accent bg-primary">
       <div className="mx-auto max-w-[1200px] px-4">
         <ul className="flex flex-wrap items-stretch">
           {items.map((item) => {
-            const isCurrent = item.current
+            const isCurrent = item.internal && item.href === currentHref
             const baseClass =
               "flex h-12 items-center gap-1.5 px-5 text-sm font-medium transition-colors md:text-[15px]"
             const stateClass = isCurrent
