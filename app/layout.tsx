@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
+const enableVercelAnalytics = process.env.VERCEL === "1"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +35,7 @@ export default function RootLayout({
     <html lang="zh-CN" className={`${notoSerif.variable} ${notoSans.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        {enableVercelAnalytics && <Analytics />}
       </body>
     </html>
   )

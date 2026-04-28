@@ -5,22 +5,22 @@ const items = [
   { label: "首页", href: "/", internal: true },
   {
     label: "智慧化教学管理系统",
-    href: "https://jwxt.lncc.edu.cn/",
+    href: "https://zhjx.lncc.edu.cn/",
     internal: false,
   },
   {
     label: "数字化教学资源学习平台",
-    href: "https://learn.lncc.edu.cn/",
+    href: "https://hysjc.lncc.edu.cn/",
     internal: false,
   },
   {
     label: "考试管理系统",
-    href: "https://exam.lncc.edu.cn/",
+    href: "http://lncc.ksxt.cn/ksxt/ksonline/index.jsp",
     internal: false,
   },
   {
     label: "综合教务管理",
-    href: "https://jwgl.lncc.edu.cn/",
+    href: "http://cas.lncc.edu.cn/cas/login?service=http%3A%2F%2Fcas.lncc.edu.cn%2Fcas%2Foauth2.0%2FcallbackAuthorize",
     internal: false,
   },
 ]

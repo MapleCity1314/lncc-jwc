@@ -1,13 +1,15 @@
 import Image from "next/image"
 import { Search } from "lucide-react"
 
+import { withBasePath } from "@/lib/site-paths"
+
 export function SiteHeader() {
   return (
     <header className="relative w-full bg-primary text-primary-foreground">
       {/* Banner image with overlay text */}
       <div className="relative h-[260px] w-full overflow-hidden md:h-[340px]">
         <Image
-          src="/images/campus-banner.jpg"
+          src={withBasePath("/nybanner.png")}
           alt="辽宁省交通高等专科学校校园主楼远景"
           fill
           priority
@@ -21,7 +23,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-5">
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-primary-foreground/40 bg-primary-foreground/10 md:h-20 md:w-20">
               <Image
-                src="/images/school-emblem.jpg"
+                src={withBasePath("/logo.png")}
                 alt="辽宁省交通高等专科学校校徽"
                 fill
                 sizes="80px"
